@@ -1,0 +1,169 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height:100%;
+}
+
+body {
+    background-repeat:repeat;
+    background-color:#d9d9d9;
+    color: #000;
+    font-size: 16px;
+    font-family: Arial;
+    width: 1200px;
+    margin: 0 auto;
+}
+header {
+    background-color:blue;
+    text-align:center;
+}
+
+header, footer {
+    display: block;
+}
+footer {
+    clear: both;
+    color: #f2f2f2;
+    background-color:#333;
+    font-size: 15px;
+    height:7%;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+}
+h1, h3, h4 {
+    color:#222;
+}
+h1 {
+    padding-top:20px;
+    text-align:center;
+    font-size:30px;
+}
+table {
+    border-collapse:collapse;
+}
+td, th {
+    border-bottom: 1px solid #aaaaaa;
+    padding: 5px;
+}
+#sidebar {
+    padding-left:11px;
+}
+#sidebar p, #sidebar h4{
+    margin:0px;
+    padding-left:10px;
+}
+#players_table tr:hover {background-color: #f5f5f5;}
+
+#roster_table {
+    text-align:center;
+}
+#roster_table th{
+    min-width:100px;
+    background-color: #333;
+    color:#f5f5f5;
+}
+#players_table {
+    min-width:80%;
+}
+#players_table th {
+    min-width:70px;
+    text-align:right;
+    background-color: #333;
+    color:#f5f5f5;
+}
+#content{
+    background-color:#ffffb3;
+   /* text-align:center;*/
+    min-height:100%;
+    min-width:100%;
+    float:right;
+}
+#content_small{
+    background-color:#ffffb3;
+   /* text-align:center;*/
+    float:right;
+    min-height:100%;
+    min-width:79%;
+}
+#content_small table, #content table{
+    margin:auto;
+}
+#sidebar{
+    float:left;
+    min-width:20%;
+    max-width:20%;
+    min-height:100%;
+    background-color:#C0C0C0;
+}
+.wrapper
+{
+    min-height:100%;
+    height:100%;
+    margin: 0 auto -4em auto;
+}
+.cell_style {
+    text-align: right;
+    min-width: 30px;
+}
+.no-border td, .no-border {
+    border: none;
+}
+.injured {
+    background-color: #ff4d4d;
+}
+.button{
+    border-radius: 7px;
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size:14px;
+    background-color: #333;
+    padding: 4px 6px 5px 7px;
+    border:2px solid #CCCCCC;
+    border-right: 2px solid #999;
+    border-bottom: 2px solid #999;
+    border-left: 2px solid #CCCCCC;
+}
+button {
+    font-size:14px;
+    height:30px;
+    min-width:70px;
+    border-radius: 7px;
+    color: #f2f2f2;
+    text-decoration: none;
+    background-color: #333;
+}
+.button:hover, button:hover {
+   background-color: #bfbfbf;
+   color: black;
+}
+/* Add a black background color to the top navigation */
+nav {
+    background-color: #333;
+    overflow: hidden;
+    height:100px;
+}
+
+/* Style the links inside the navigation bar */
+nav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top:50px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Change the color of links on hover */
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+nav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
