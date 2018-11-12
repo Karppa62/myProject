@@ -20,7 +20,7 @@ public class AppController {
     @Autowired
     private LineDAO lineDAO;
 
-    //runs after this object is created
+    // For testing. Adds data to tables if they are empty
     @PostConstruct
     private void init() {
         playerDAO.addDumbDataPlayers();
@@ -29,8 +29,6 @@ public class AppController {
 
     @GetMapping(value = "/")
     public String indexPageGET(Model model) {
-
-      //  model.addAttribute("title", "Team manager");
 
         return "redirect:/showLoginPage";
     }

@@ -71,8 +71,10 @@ public class RosterController {
             linePlayers = new LinePlayers(
                     i,
                     line.getLineName(),
-                    playerDAO.getPlayerName(line.getLD()),playerDAO.getPlayerName(line.getRD()),
-                    playerDAO.getPlayerName(line.getLW()),playerDAO.getPlayerName(line.getRW()),
+                    playerDAO.getPlayerName(line.getLD()),
+                    playerDAO.getPlayerName(line.getRD()),
+                    playerDAO.getPlayerName(line.getLW()),
+                    playerDAO.getPlayerName(line.getRW()),
                     playerDAO.getPlayerName(line.getC()));
             lines.add(linePlayers);
             i++;

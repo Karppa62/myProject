@@ -3,7 +3,6 @@ package com.buutcamp.controller;
 import com.buutcamp.dao.LineDAO;
 import com.buutcamp.dao.PlayerDAO;
 import com.buutcamp.dao.PlayerStatsDAO;
-import com.buutcamp.entity.Line;
 import com.buutcamp.entity.Player;
 import com.buutcamp.entity.PlayerStats;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,17 +63,8 @@ public class PlayerController {
 
         model.addAttribute("positions", positions);
 
-        List<Integer> jerseyNumbers = new ArrayList<Integer>();
-        List<Player> players = playerDAO.getPlayers();
-        List<Integer> usedNumbers = new ArrayList<Integer>();
-         for (int i = 0; i < players.size(); i++) {
-                usedNumbers.add(players.get(i).getJerseyNumber());
-        }
-        for (int i = 1; i < 100; i++) {
-            if (!usedNumbers.contains(i)) {
-                jerseyNumbers.add(i);
-            }
-        }
+        List<Integer> jerseyNumbers = possibleJerseyNumbers(0);
+
         model.addAttribute("jerseyNumbers", jerseyNumbers);
         return "addplayer_view";
     }
@@ -108,19 +98,8 @@ public class PlayerController {
 
         model.addAttribute("positions", positions);
 
-        List<Integer> jerseyNumbers = new ArrayList<Integer>();
-        List<Player> players = playerDAO.getPlayers();
+        List<Integer> jerseyNumbers = possibleJerseyNumbers(player.getJerseyNumber());
 
-        List<Integer> usedNumbers = new ArrayList<Integer>();
-        for (int i = 0; i < players.size(); i++) {
-            usedNumbers.add(players.get(i).getJerseyNumber());
-        }
-
-        for (int i = 1; i < 100; i++) {
-            if (!usedNumbers.contains(i) || i == player.getJerseyNumber()) {
-                jerseyNumbers.add(i);
-            }
-        }
         model.addAttribute("jerseyNumbers", jerseyNumbers);
 
         return "addplayer_view";
@@ -189,4 +168,21 @@ public class PlayerController {
             positions.add("F");
         }
     }
-}
+
+    private List<Integer> possibleJerseyNumbers(int number) {
+
+        List<Player> players = playerDAO.getPlayers();
+        List<Integer> usedNumbers = new ArrayList<Integer>();
+        List<Integer> jerseyNumbers = new ArrayList<Integer>();
+
+        for (Player player : players) {
+            usedNumbers.add(player.getJerseyNumber());
+        }
+        for (int i = 1; i < 100; i++) {
+            if (!usedNumbers.contains(i) || i == number) {
+                jerseyNumbers.add(i);
+            }
+        }
+        return jerseyNumbers;
+    }
+ }

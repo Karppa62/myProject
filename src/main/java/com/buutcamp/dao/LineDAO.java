@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -37,7 +36,6 @@ public class LineDAO {
             session.save(new Line("Second line"));
             session.save(new Line("Third line"));
             session.save(new Line("Fourth line"));
-
         }
     }
 
@@ -64,8 +62,7 @@ public class LineDAO {
 
         boolean updateLine = false;
 
-        for (int i = 0; i < lines.size(); i++) {
-            Line line = lines.get(i);
+        for (Line line : lines) {
             if (line.getLD() == playerId) {
                 line.setLD(0);
                 updateLine = true;

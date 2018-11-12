@@ -40,6 +40,7 @@ public class Player {
     public Player() {
     }
 
+    // For testing
     public Player(String firstName, String lastName, int jerseyNumber, String position) {
         this.firstName = firstName;
         this.lastName = lastName;

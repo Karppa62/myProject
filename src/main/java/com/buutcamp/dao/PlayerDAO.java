@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +107,6 @@ public class PlayerDAO {
                 query = session.createQuery("from Player p where lower(lastName) like :searchValue " +
                         "order by p.lastName, p.firstName, p.jerseyNumber", Player.class);
 
-                //Using wildcards, to allow people to search with only part of the name.
                 query.setParameter("searchValue", searchVal.toLowerCase() + "%");
             }
             else {
@@ -123,7 +121,6 @@ public class PlayerDAO {
 
         } else {
             if (position == "") {
-                //if you for some reason try to search with "nothing", return everything in the list
                 query = session.createQuery("from Player p order by p.lastName, p.firstName, p.jerseyNumber", Player.class);
             }
             else {
@@ -146,6 +143,7 @@ public class PlayerDAO {
 
         List<Player> players = query.getResultList();
         List<Player> tempPlayers = new ArrayList<Player>();
+
         for (Player player : players) {
             if (!player.getPlayerStats().isInjured()) {
                 tempPlayers.add(player);
@@ -193,9 +191,6 @@ public class PlayerDAO {
             session.save(new Player("Mikael", "Ruohomaa", 33, "F"));
             session.save(new Player("Ville", "Pokka", 2, "D"));
             session.save(new Player("Shaun", "Heska", 26, "D"));
-//
-//            session.save(new Player("Pekka", "Rinne", 35, "G"));
-//            session.save(new Player("Justus", "Annunen", 1, "G"));
         }
     }
 }

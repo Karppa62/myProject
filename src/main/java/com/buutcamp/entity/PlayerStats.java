@@ -24,14 +24,14 @@ public class PlayerStats {
     @Column(name = "injured")
     private boolean injured;
 
-    //random values for dumbDataplayers
+    // For testing. Random values for dumbDataPlayers
     public PlayerStats() {
         Random rand = new Random();
 
         this.goals = rand.nextInt(50);
-        this.assists = rand.nextInt(50) + 0;
+        this.assists = rand.nextInt(50);
         this.gamesPlayed = rand.nextInt(100);
-        this.injured = rand.nextInt(100) < 20 ? true : false;
+        this.injured = rand.nextInt(100) < 20;
     }
 
     public PlayerStats(int goals, int assists, int gamesPlayed, boolean injured) {
